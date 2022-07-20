@@ -53,7 +53,7 @@ function AllCoctails() {
   return (
     <div className="App">
       <input type="text" placeholder="Search cocktail..." id="searchBar" onKeyUp={ searchCocktails }/>
-      {cocktail.map(item => <a href={ item } target="_blank" className="cocktails"><h1 >{ item }</h1></a>)}
+      {cocktail.map(item => <a href={ "#/" + item } target="_blank" className="cocktails"><h1 >{ item }</h1></a>)}
     </div>
   );
 }
