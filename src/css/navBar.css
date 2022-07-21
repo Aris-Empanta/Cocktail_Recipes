@@ -1,0 +1,50 @@
+/*The navigation links wrapper*/
+#navLinks {
+    list-style-type: none;
+    position: relative;
+}
+
+/*Each navigation link layout*/
+#navLinks li {
+    display: inline;
+    float: left;
+    cursor: pointer;
+    margin: 35px;
+    font-family: sans-serif;
+    font-size: 1.2rem;
+}
+
+/*Removing default anchor element styling*/
+#navLinks li a {
+    text-decoration: none;
+    color: black;
+}
+
+/*The search navlink*/
+#searchLinks {
+    height: 35px;
+}
+
+/*The submenu appearing when hovering on search link*/
+#subMenu {
+    position: absolute;
+    top: 65px;
+    left: 370px;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    border: 1px solid black;
+    width: 130px;
+    height: 100px;
+}
+
+/*The submenu links*/
+#subMenu a {
+    font-family: sans-serif;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-left: 10px;
+    text-decoration: none;
+    color: black;
+}
