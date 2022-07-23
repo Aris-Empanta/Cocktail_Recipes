@@ -1,35 +1,55 @@
 import axios from "axios"
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import "../css/search.css"
 
 export const ByIngredient = () => {
     
-    const [cocktailName, setCocktailName] = useState([])
+    const [cocktailData, setCocktailData] = useState([])
     const [error, setError] = useState("")
+    const [loaded, setLoaded] = useState(true)
+
+    useEffect(() => {
+      let loader = document.getElementById("loaderIngredient")
+
+      if(loaded === true){
+        loader.style.display = "none"
+      } else {
+        loader.style.display = "initial"
+      }
+    })
     
 
 
     const findIngredient = () => {
 
-      setCocktailName([])
+      setCocktailData([])
       setError("")
+      setLoaded(false)
 
       let ingredient = document.getElementById("inputIngredient").value    
      
 
      axios.get("https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + ingredient)
-           .then((response) => {                     
+           .then((response) => {  
+              setLoaded(true)                   
               for(let i=0; i< response.data.drinks.length; i++){        
-                  setCocktailName(oldArray => [...oldArray, response.data.drinks[i].strDrink])                                      
-                }                                   
+                  setCocktailData(oldArray => [...oldArray, [response.data.drinks[i].strDrink, response.data.drinks[i].strDrinkThumb]])                                       
+                }                                    
            }).catch(() => setError("no such cocktail"))   
     }
    
-//
     return(<div>
              <input type="text" id="inputIngredient" placeholder="Enter ingredient" />
              <button id="searchIngredient" onClick={ findIngredient }>Search</button>
-             { cocktailName.map(item => <p>{ item}</p>)}
+             { cocktailData.map(item => <a class="cocktailLink" href= { "#/" + item[0] } target="_blank">
+                                          <div class="cocktailWrapper">                                          
+                                            <img id="cocktailImage" alt="please wait..." src={ item[1]} />
+                                            <p id="cocktailCaption">{ item[0] }</p>
+                                          </div>
+                                        </a>)}
+                                          
              <p>{ error }</p>
+             <p id="loaderIngredient">...loading</p>
            </div>
           )
 }

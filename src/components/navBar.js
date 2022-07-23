@@ -18,18 +18,18 @@ export const NavBar = () => {
         <div>
             <ul id="navLinks">
                 <li>
-                    <a href="#/" target="_blank">Home</a>
+                    <a href="#/" >Home</a>
                 </li>
                 <li>
-                    <a href="#/all-cocktails"  target="_blank">All Cocktails</a>
+                    <a href="#/all-cocktails" >All Cocktails</a>
                 </li>
                 <li onMouseOver={ showSubMenu }
                     onMouseLeave= { hideSubMenu }
                     id="searchLinks">
                     Search&nbsp;<span>< FontAwesomeIcon icon={ faChevronDown } /></span>
                     <div id="subMenu">
-                        <a  href="#/by-ingredient" target="_blank">By ingredient</a>
-                        <a  href="#/by-name" target="_blank">By name</a>
+                        <a  href="#/by-ingredient" >By ingredient</a>
+                        <a  href="#/by-name" >By name</a>
                     </div>
                 </li>               
             </ul>

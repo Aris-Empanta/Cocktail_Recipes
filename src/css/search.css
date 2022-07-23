@@ -1,0 +1,26 @@
+.cocktailWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+    width: 160px;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+#cocktailImage {
+    width: 151px;
+    height: 151px;
+    border: 1px solid black;
+}
+
+#cocktailCaption {
+    max-width: 150px;
+    color: black;
+    
+}
+
+.cocktailLink {
+    text-decoration: none;
+}
