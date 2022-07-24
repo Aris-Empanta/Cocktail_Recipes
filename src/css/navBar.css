@@ -28,7 +28,7 @@
 /*The submenu appearing when hovering on search link*/
 #subMenu {
     position: absolute;
-    top: 65px;
+ 
     left: 370px;
     display: none;
     flex-direction: column;

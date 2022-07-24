@@ -1,5 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
+import { NavBar } from './navBar';
 
 export const ByName = () => {
 
@@ -38,15 +39,20 @@ export const ByName = () => {
       }
 
     return(<div>
-             <input type="text" placeholder="Enter cocktail name" id="inputName" />
-             <button id="searchName" onClick={ findName }>Search</button>
-             { cocktailData.map(item => <a class="cocktailLink" href= { "#/" + item[0] } target="_blank">
-                                          <div class="cocktailWrapper">                                          
-                                            <img id="cocktailImage" alt="please wait..." src={ item[1]} />
-                                            <p id="cocktailCaption">{ item[0] }</p>
-                                          </div>
-                                        </a>)}
-             <p>{ error }</p>
-             <p id="loaderName">...loading</p>
+             <NavBar />
+             <div className="inputWrapper">
+                <div className="inputField">
+                  <input type="text" placeholder="Enter cocktail name" id="inputName" />
+                  <button id="searchName" onClick={ findName }>Search</button>
+                </div >               
+                { cocktailData.map(item => <a class="cocktailLink" href= { "#/" + item[0] } target="_blank">
+                                              <div class="cocktailWrapper">                                          
+                                                <img id="cocktailImage" alt="please wait..." src={ item[1]} />
+                                                <p id="cocktailCaption">{ item[0] }</p>
+                                              </div>
+                                            </a>)}
+                <p>{ error }</p>
+                <p id="loaderName">...loading</p>
+              </div>
            </div>)
 }
