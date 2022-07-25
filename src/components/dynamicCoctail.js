@@ -19,7 +19,7 @@ function DynamicCocktail() {
      
     useEffect(() => {
 
-     
+    
       let loader = document.getElementById("loaderRecipe")
 
       if(loaded === false){
@@ -27,46 +27,38 @@ function DynamicCocktail() {
         } else {
           loader.style.display = "none"
         }
-         
-        Axios.get("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + params.cocktailId).then((response) => { 
-
+        
+        Axios.get("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + params.cocktailId).then((response) => {
+                            
                 setLoaded(true)
-                
 
                 for(let i=0; i< response.data.drinks.length; i++){
                     if(params.cocktailId === response.data.drinks[i].strDrink) {
                       
-                        setRecipe(response.data.drinks[i].strInstructions)
-                        setName(response.data.drinks[i].strDrink)
-                        setAlcoholic(response.data.drinks[i].strAlcoholic)
-                        setCategory(response.data.drinks[i].strCategory)
-                        setGlass(response.data.drinks[i].strGlass)
-                        setImage(response.data.drinks[i].strDrinkThumb)
+                      setRecipe(response.data.drinks[i].strInstructions)
+                      setName(response.data.drinks[i].strDrink)
+                      setAlcoholic(response.data.drinks[i].strAlcoholic)
+                      setCategory(response.data.drinks[i].strCategory)
+                      setGlass(response.data.drinks[i].strGlass)
+                      setImage(response.data.drinks[i].strDrinkThumb)                        
+                      
+                      let array = []                      
+                      let j=1
 
-                        
-                        
-                        let j = 1
-                        while(response.data.drinks[i]["strIngredient"+j]){
-                         
-                          setIngredients((oldArray) => [...oldArray, response.data.drinks[i]["strIngredient"+j]])
-                          j += 1  
-                          if(response.data.drinks[i]["strIngredient"+j] === null){
-                            
-                            break
-                              
-                          }
-                        }
-                        
+                      while(response.data.drinks[i]["strIngredient" + j] !== null){   
+                        array.push(response.data.drinks[i]["strIngredient" + j])
+                        j++
+                      }                                        
+                    
+                      if(axiosReference === 0){
+                        setAxiosReference(1)
+                        setIngredients(array)
                       }
-
-                        console.log(ingredients.length)
-                    }
-                       
-              })
-
-            
-        }
-      )
+                    }                  
+                  }                 
+                })                
+              }            
+         )
 
   return (
     <div>    
@@ -76,6 +68,7 @@ function DynamicCocktail() {
       { alcoholic }<br></br>
       { glass }<br></br>
       { category }<br></br>
+      { ingredients.map(item => <p>{ item }</p>) }
       <p id="loaderRecipe">...loading</p>
     </div>
   );
