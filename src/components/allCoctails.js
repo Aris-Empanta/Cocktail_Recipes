@@ -39,7 +39,7 @@ function AllCoctails() {
     
     const letter = document.getElementById(code).innerText.toLowerCase()
     setLoaded(false) 
-    document.getElementById("noCocktail").style.display = "none"
+    
 
     Axios.get("https://www.thecocktaildb.com/api/json/v1/1/search.php?f=" + letter )
          .then((response) => {
@@ -52,11 +52,7 @@ function AllCoctails() {
                   }                 
                 } 
 
-          ).catch(() => {
-              setLoaded(true) 
-              document.getElementById("noCocktail").style.display = "initial"
-              document.getElementById("noCocktail").innerText += letter
-          })
+          )
   }  
    
 
@@ -89,10 +85,8 @@ function AllCoctails() {
         <button className="alphabetButton" id="r" onClick={ () => chooseFirstLetter("r") }>R</button> 
         <button className="alphabetButton" id="s" onClick={ () => chooseFirstLetter("s") }>S</button>
         <button className="alphabetButton" id="t" onClick={ () => chooseFirstLetter("t") }>T</button>
-        <button className="alphabetButton" id="u" onClick={ () => chooseFirstLetter("u") }>U</button>
         <button className="alphabetButton" id="v" onClick={ () => chooseFirstLetter("v") }>V</button>
         <button className="alphabetButton" id="w" onClick={ () => chooseFirstLetter("w") }>W</button>
-        <button className="alphabetButton" id="x" onClick={ () => chooseFirstLetter("x") }>X</button>
         <button className="alphabetButton" id="y" onClick={ () => chooseFirstLetter("y") }>Y</button>
         <button className="alphabetButton" id="z" onClick={ () => chooseFirstLetter("z") }>Z</button>
       </div>          
@@ -104,8 +98,7 @@ function AllCoctails() {
                                                 </div>
                                               </a>)}
       </div>      
-      <p id="loaderName">...loading</p>
-      <p id="noCocktail">No cocktail found with first letter </p>                       
+      <p id="loaderName">...loading</p>                   
     </div>
   );
 }
