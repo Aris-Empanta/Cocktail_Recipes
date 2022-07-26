@@ -14,6 +14,7 @@ export const Random = () => {
     const [image, setImage ] = useState("")    
     const [ingredients, setIngredients] = useState([])
     const [loaded, setLoaded] = useState(true)
+    const [myQuote, setMyQuote] = useState("Are you in doubt? Let me decide for you!")
 
     
     /*Below, we set a condition for the component, so that the loading element is displayed during
@@ -40,12 +41,20 @@ export const Random = () => {
         setGlass("")
         setImage("")
         setIngredients([])
-        setLoaded(false)        
+        setLoaded(false)   
+
+        //The quote while fetching a different random cocktail
+        if(myQuote === "There you Have it!"){
+          setMyQuote("Not satisfied? Let's try another one.")
+        }
+             
         
         //Fetcing the random cocktail's info.
         axios.get("https://www.thecocktaildb.com/api/json/v1/1/random.php").then((response) => {
                       //Ceasing the display of the loading element
                       setLoaded(true)
+                      //Changing the quote
+                      setMyQuote("There you Have it!") 
                       //Setting all state according to the fetched data
                       setRecipe(response.data.drinks[0].strInstructions)
                       setName(response.data.drinks[0].strDrink)
@@ -69,7 +78,7 @@ export const Random = () => {
 
     return (<div>
                 <NavBar />
-                <p>Are you in doubt? Let me decide for you!</p>
+                <p>{ myQuote }</p>
                 <button onClick={ random }>GET COCKTAIL</button>
                 <img src= { image } /><br></br>  
                         { name }<br></br>
