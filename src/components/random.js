@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import axios from "axios"
 import "../css/random.css"
 
+/*We below component, a user can generate a random cocktail recipe on buttons click. */
 export const Random = () => {
 
     const [recipe, setRecipe] = useState("")    
@@ -14,6 +15,9 @@ export const Random = () => {
     const [ingredients, setIngredients] = useState([])
     const [loaded, setLoaded] = useState(true)
 
+    
+    /*Below, we set a condition for the component, so that the loading element is displayed during
+      the delay that happens when axios is fetching the data from cocktail DB */
     useEffect(() => {
         let loader = document.getElementById("loaderRandom")
 
@@ -24,9 +28,11 @@ export const Random = () => {
         }
       })
 
+    
+    //With below function, axios fetches a random's cocktail's recipe from the database on button's click.  
     const random = () => {
-
         
+        //Reseting all cocktails info in every button's click.
         setRecipe("")
         setName("")
         setAlcoholic("")
@@ -35,10 +41,12 @@ export const Random = () => {
         setImage("")
         setIngredients([])
         setLoaded(false)        
-       
+        
+        //Fetcing the random cocktail's info.
         axios.get("https://www.thecocktaildb.com/api/json/v1/1/random.php").then((response) => {
-
+                      //Ceasing the display of the loading element
                       setLoaded(true)
+                      //Setting all state according to the fetched data
                       setRecipe(response.data.drinks[0].strInstructions)
                       setName(response.data.drinks[0].strDrink)
                       setAlcoholic(response.data.drinks[0].strAlcoholic)
@@ -46,17 +54,17 @@ export const Random = () => {
                       setGlass(response.data.drinks[0].strGlass)
                       setImage(response.data.drinks[0].strDrinkThumb) 
 
-                    
-                      let k=1
+                      /*With below loop, we fetch all the ingredients needed for each specific cocktail,
+                       independantly of the amount of ingredients existing.*/
+                      let i=1
 
-                      while(response.data.drinks[0]["strIngredient" + k]){   
-                        setIngredients([...ingredients, response.data.drinks[0]["strIngredient" + k]]) 
-                        k++
-                      } 
-                     
+                      while(response.data.drinks[0]["strIngredient" + i]){   
+                        setIngredients([...ingredients, response.data.drinks[0]["strIngredient" + i]]) 
+                        i++
+                      }
+                  })
 
-        })
-    }
+            }
 
 
     return (<div>

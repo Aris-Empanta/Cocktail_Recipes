@@ -1,9 +1,9 @@
-import "../css/navBar.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons"
+import "../css/navBar.css"
 
+//The navigation bar, a component I added only in the components I wanted.
 export const NavBar = () => {
-
 
     //Below functions show and hide the submenu when hovering on "Search" link
     const showSubMenu = () => {
@@ -35,8 +35,7 @@ export const NavBar = () => {
                 <li>
                     <a href="#/random" >Random</a>
                 </li>            
-            </ul>
-            
+            </ul>            
         </div>
-    )
-}
+       )
+    }

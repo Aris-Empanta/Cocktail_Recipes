@@ -1,17 +1,20 @@
-import Axios from "axios"
+import axios from "axios"
 import { useEffect, useState } from 'react';
-import "../css/allCocktails.css"
 import { NavBar } from './navBar';
+import "../css/allCocktails.css"
 
-function AllCoctails() {
+//Below component displays all cocktails of the database in alphabetical order
+export const AllCoctails = () => {
 
 
   const [cocktailData, setCocktailData] = useState([])
   const [axiosReference, setAxiosReference] = useState(0)
   const [loaded, setLoaded] = useState(false)
-
-  
+    
   useEffect(() => {
+
+      /*Below, we set a condition for the component, so that the loading element is displayed during
+        the delay that happens when axios is fetching the data from cocktail DB */
       let loader = document.getElementById("loaderName")
 
       if(loaded === true){
@@ -19,11 +22,15 @@ function AllCoctails() {
       } else {
         loader.style.display = "initial"
       }
-
-      Axios.get("https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a" )
+      //Fetching the data needed from cocktail DB
+      axios.get("https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a" )
            .then((response) => {  
-            setLoaded(true)          
-             
+              //Ceasing the display of the loading element
+              setLoaded(true)     
+
+              /* State updates in conjunction with useEffect, causes component to re-render, with unwanted side effects,
+                like fetching the data infinite times. That's why I used the trick below to fetch the data needed
+                only once, with the axiosReference condition.  */
               let array = []                      
               let j=1
 
@@ -34,37 +41,31 @@ function AllCoctails() {
               if(axiosReference === 0){ 
                   setAxiosReference(1)
                   setCocktailData(array)
-                }      
-                                              
-           })
-     }
-  )
+                }                                             
+              })
+            }
+           )
 
-
+  /*With below function we can switch between the desired cocktail's first alphabet character. */
   const chooseFirstLetter = (code) => {    
     
-    const letter = document.getElementById(code).innerText.toLowerCase()
-    setLoaded(false) 
-    
+    const character = document.getElementById(code).innerText.toLowerCase()
+    //Reseting state for each search
+    setLoaded(false)    
+    setCocktailData([])
 
-    Axios.get("https://www.thecocktaildb.com/api/json/v1/1/search.php?f=" + letter )
+    axios.get("https://www.thecocktaildb.com/api/json/v1/1/search.php?f=" + character )
          .then((response) => {
-              setLoaded(true) 
-              
-              setCocktailData([])
+              //Ceasing the loader element display
+              setLoaded(true)             
 
+              //Building a 2-dimantional array with the cocktail name and its image
               for(let i=0; i< response.data.drinks.length; i++){        
                    setCocktailData(oldArray => [...oldArray, [response.data.drinks[i].strDrink, response.data.drinks[i].strDrinkThumb]])                                       
                   }                 
-                } 
-
-          )
-  }  
-   
-
-
-    
-  
+                }
+              )
+            }
 
 
   return (
@@ -108,5 +109,3 @@ function AllCoctails() {
     </div>
   );
 }
-
-export default AllCoctails;

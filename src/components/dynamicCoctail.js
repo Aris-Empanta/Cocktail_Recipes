@@ -2,7 +2,10 @@ import {useParams} from 'react-router-dom';
 import Axios from "axios"
 import { useEffect, useState } from 'react';
 
-function DynamicCocktail() {    
+
+/*Below component, is dynamically generated every time we click to a cocktail we want to check.
+  It contains all the information needed to made that cocktail. */
+export const DynamicCocktail = () => {    
     
     const [recipe, setRecipe] = useState("")    
     const [name, setName] = useState("")
@@ -13,13 +16,15 @@ function DynamicCocktail() {
     const [axiosReference, setAxiosReference] = useState(0)
     const [ingredients, setIngredients] = useState([])
     const [loaded, setLoaded] = useState(false)
-
+    
+    //We need the useParams hook, to fetch the data from the url so that we render the component accordingly. 
     const params = useParams();
 
-     
+    //We render all the info we need to make the cocktail. 
     useEffect(() => {
 
-    
+      /*Below, we set a condition for the component, so that the loading element is displayed during
+        the delay that happens when axios is fetching the data from cocktail DB */
       let loader = document.getElementById("loaderRecipe")
 
       if(loaded === false){
@@ -28,12 +33,14 @@ function DynamicCocktail() {
           loader.style.display = "none"
         }
         
-        Axios.get("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + params.cocktailId).then((response) => {
-                            
+        /*We fetch the cocktails' informations, depending of the cocktail name in the url.*/
+        Axios.get("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + params.cocktailName).then((response) => {
+                
+                //Ceasing the display of the loading element
                 setLoaded(true)
-
+               
                 for(let i=0; i< response.data.drinks.length; i++){
-                    if(params.cocktailId === response.data.drinks[i].strDrink) {
+                    if(params.cocktailName === response.data.drinks[i].strDrink) {
                       
                       setRecipe(response.data.drinks[i].strInstructions)
                       setName(response.data.drinks[i].strDrink)
@@ -42,6 +49,9 @@ function DynamicCocktail() {
                       setGlass(response.data.drinks[i].strGlass)
                       setImage(response.data.drinks[i].strDrinkThumb)                        
                       
+                      /* State updates in conjunction with useEffect, causes component to re-render, with unwanted side effects,
+                        like fetching the data infinite times. That's why I used the trick below to fetch the data needed
+                        only once, with the axiosReference condition.  */
                       let array = []                      
                       let j=1
 
@@ -56,22 +66,21 @@ function DynamicCocktail() {
                       }
                     }                  
                   }                 
-                })                
-              }            
-         )
+                }
+              )                
+            }            
+          )
 
   return (
-    <div>    
-      <img src= { image } /><br></br>  
-      { name }<br></br>
-      { recipe }<br></br>
-      { alcoholic }<br></br>
-      { glass }<br></br>
-      { category }<br></br>
-      { ingredients.map(item => <p>{ item }</p>) }
-      <p id="loaderRecipe">...loading</p>
-    </div>
-  );
-}
-
-export default DynamicCocktail;
+          <div>    
+            <img src= { image } /><br></br>  
+            { name }<br></br>
+            { recipe }<br></br>
+            { alcoholic }<br></br>
+            { glass }<br></br>
+            { category }<br></br>
+            { ingredients.map(item => <p>{ item }</p>) }
+            <p id="loaderRecipe">...loading</p>
+          </div>
+        );
+      }

@@ -25,12 +25,13 @@
 .cocktailLink {
     text-decoration: none;
 }
-
+/*The input fields styling*/
 .inputField {
     grid-area: header;
     justify-self: center;
 }
 
+/*The wrapper of all the fetchedd data.*/
 .inputWrapper {
     display: grid;
     grid-template-areas: "header header header"

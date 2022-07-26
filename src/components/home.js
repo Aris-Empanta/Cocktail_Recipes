@@ -2,9 +2,7 @@ import "../css/home.css"
 import { NavBar } from './navBar';
 
 
-function Home() {
-
-
+export const Home = () => {
 
   return (<div> 
             <div id="homePage">
@@ -12,6 +10,4 @@ function Home() {
             </div>           
           </div>
     );
-    }
-
-export default Home;
+  }

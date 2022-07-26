@@ -1,3 +1,4 @@
+/*The wrapper that contains all the buttonswith the alphabet characters.*/
 #buttonWrapper {
     display: flex;
     justify-content: center;
