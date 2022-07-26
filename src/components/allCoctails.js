@@ -22,14 +22,20 @@ function AllCoctails() {
 
       Axios.get("https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a" )
            .then((response) => {  
-            setLoaded(true) 
-            setAxiosReference(0)
-             if(axiosReference === 0){                 
-              for(let i=0; i< response.data.drinks.length; i++){        
-                  setCocktailData(oldArray => [...oldArray, [response.data.drinks[i].strDrink, response.data.drinks[i].strDrinkThumb]])                                       
+            setLoaded(true)          
+             
+              let array = []                      
+              let j=1
+
+              for(let i=0; i< response.data.drinks.length; i++){     
+                  array.push([response.data.drinks[i].strDrink, response.data.drinks[i].strDrinkThumb])                                                 
                 } 
-             }       
-            setAxiosReference(1)                                  
+
+              if(axiosReference === 0){ 
+                  setAxiosReference(1)
+                  setCocktailData(array)
+                }      
+                                              
            })
      }
   )

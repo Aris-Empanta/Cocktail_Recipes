@@ -31,7 +31,10 @@ export const NavBar = () => {
                         <a  href="#/by-ingredient" >By ingredient</a>
                         <a  href="#/by-name" >By name</a>
                     </div>
-                </li>               
+                </li>   
+                <li>
+                    <a href="#/random" >Random</a>
+                </li>            
             </ul>
             
         </div>
