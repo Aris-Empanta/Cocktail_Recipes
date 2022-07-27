@@ -1,7 +1,9 @@
+
 /*The navigation links wrapper*/
 #navLinks {
     list-style-type: none;
     position: relative;
+    padding-top: 50px;
 }
 
 /*Each navigation link layout*/
@@ -11,38 +13,39 @@
     cursor: pointer;
     margin: 35px;
     font-family: sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
 }
 
 /*Removing default anchor element styling*/
 #navLinks li a {
     text-decoration: none;
-    color: black;
+    color: white;
 }
 
 /*The search navlink*/
 #searchLinks {
     height: 35px;
+    color: white;
 }
 
 /*The submenu appearing when hovering on search link*/
 #subMenu {
-    position: absolute;
- 
-    left: 370px;
+    position: absolute; 
+    left: 360px;
+    top: 115px;
     display: none;
     flex-direction: column;
     justify-content: center;
     gap: 20px;
-    border: 1px solid black;
-    width: 130px;
+    box-shadow: 2px 2px 6px #4b0082;
+    width: 145px;
     height: 100px;
 }
 
 /*The submenu links*/
 #subMenu a {
     font-family: sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     cursor: pointer;
     margin-left: 10px;
     text-decoration: none;

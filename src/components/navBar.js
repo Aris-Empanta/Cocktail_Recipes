@@ -16,26 +16,29 @@ export const NavBar = () => {
 
     return(
         <div>
-            <ul id="navLinks">
-                <li>
-                    <a href="#/" >Home</a>
-                </li>
-                <li>
-                    <a href="#/all-cocktails" >All Cocktails</a>
-                </li>
-                <li onMouseOver={ showSubMenu }
-                    onMouseLeave= { hideSubMenu }
-                    id="searchLinks">
-                    Search&nbsp;<span>< FontAwesomeIcon icon={ faChevronDown } /></span>
-                    <div id="subMenu">
-                        <a  href="#/by-ingredient" >By ingredient</a>
-                        <a  href="#/by-name" >By name</a>
-                    </div>
-                </li>   
-                <li>
-                    <a href="#/random" >Random</a>
-                </li>            
-            </ul>            
+                          
+                <ul id="navLinks">
+                    <li>
+                        <a href="#/" >Home</a>
+                    </li>
+                    <li>
+                        <a href="#/all-cocktails" >All Cocktails</a>
+                    </li>
+                    <li onMouseOver={ showSubMenu }
+                        onMouseLeave= { hideSubMenu }
+                        id="searchLinks">
+                        Search&nbsp;<span>< FontAwesomeIcon icon={ faChevronDown } /></span>
+                        <div id="subMenu">
+                            <a  href="#/by-ingredient" >By ingredient</a>
+                            <a  href="#/by-name" >By name</a>
+                        </div>
+                    </li>   
+                    <li>
+                        <a href="#/random" >Random</a>
+                    </li>           
+                </ul>
+                
+                       
         </div>
        )
     }
