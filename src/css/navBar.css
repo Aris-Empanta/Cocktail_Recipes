@@ -19,13 +19,13 @@
 /*Removing default anchor element styling*/
 #navLinks li a {
     text-decoration: none;
-    color: white;
+    color: #682860;
 }
 
 /*The search navlink*/
 #searchLinks {
     height: 35px;
-    color: white;
+    color: #682860;
 }
 
 /*The submenu appearing when hovering on search link*/
@@ -37,9 +37,10 @@
     flex-direction: column;
     justify-content: center;
     gap: 20px;
-    box-shadow: 2px 2px 6px #4b0082;
+    box-shadow: 2px 2px 6px #682860;
     width: 145px;
     height: 100px;
+    z-index: 2;
 }
 
 /*The submenu links*/
