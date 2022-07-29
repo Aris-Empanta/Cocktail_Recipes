@@ -1,19 +1,28 @@
+#barsMenu {
+    display: none;
+}
+
+
+#xButton {
+    display: none;
+}
 
 /*The navigation links wrapper*/
 #navLinks {
     list-style-type: none;
     position: relative;
     padding-top: 50px;
+    display: flex;
 }
 
 /*Each navigation link layout*/
 #navLinks li {
-    display: inline;
-    float: left;
+    
     cursor: pointer;
     margin: 35px;
     font-family: sans-serif;
     font-size: 1.3rem;
+  
 }
 
 /*Removing default anchor element styling*/
@@ -51,4 +60,82 @@
     margin-left: 10px;
     text-decoration: none;
     color: black;
+}
+
+
+
+@media (max-width: 705px) {
+    #barsMenu {
+        display: initial;
+        cursor: pointer;
+        margin: 35px;
+        font-family: sans-serif;
+        font-size: 2rem;
+        color: #682860;
+        background-color: transparent;
+        border: none;
+    }
+    
+    #smallNavLinks {
+    display: flex;
+    flex-direction: column;
+
+    }
+
+    #smallNavLinks li {
+        cursor: pointer;
+        margin: 35px;
+        font-family: sans-serif;
+        font-size: 1.3rem;
+    }
+
+    #smallNavLinks li a {
+        text-decoration: none;
+        color: #682860;
+    }
+    
+    #navWrapper {
+        display: none;
+    }
+
+    #smallNavWrapper {
+        background-color: white;
+        z-index: 3;
+        height: 100vh;
+        width: 100vw;
+        position: absolute;
+        top:0;
+        transform: translateX(-100vw);
+        transition: transform 1s;
+    }
+
+    #smallSearchLinks {
+        position: relative;
+    }
+
+    #smallSubMenu {
+        position: absolute; 
+        left: 50px;
+        top: 15px;
+        box-shadow: none;
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+        display:flex;
+        width: 145px;
+        height: 100px;
+        z-index: 2;
+    }
+
+        
+    #xButton {
+        display: initial;
+        float: right;
+        margin: 40px;
+        background-color: transparent;
+        border: none;
+        color: #682860;
+        font-size: 1.7rem;
+    }
+ 
 }

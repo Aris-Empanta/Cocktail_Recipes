@@ -1,7 +1,7 @@
 #homePage {    
     height: 100vh;
     position: relative;
-    background-color: #fefe33;    
+    background-color: #ffff66;    
 }
 
 #homeWrapper {
@@ -13,7 +13,7 @@
     top: 150px;
     width: 100%;
     height: 250px;
-    background-color: #fefe33;
+    background-color: #ffff66;
 }
 
 #welcomeWrapper {
@@ -21,6 +21,7 @@
     flex-direction: column;
     justify-content: center;
     height: 350px;
+    background-color: transparent;
 }
 
 #welcomeTitle {
@@ -57,11 +58,17 @@
     content: "";
     display: block;
     height: 100px;
-    background-color: #fefe33;
+    background-color: #ffff66;
     width: 100%;
     position: absolute;
     border-bottom-left-radius: 50% 100%;
     border-bottom-right-radius: 50% 100%;
     left: 0;
+}
+
+@media (max-width: 705px) {
+    #welcomeTitle {
+        font-size: 3rem;
+    }
 }
 

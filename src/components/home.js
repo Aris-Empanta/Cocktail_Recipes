@@ -5,12 +5,14 @@ import cocktail from "../images/cocktail.jpg"
 
 export const Home = () => {
 
+
+  /* */
   return (<div> 
             <div id="homePage">
               <NavBar />  
                 <div id="homeWrapper">
                   <div id="welcomeWrapper">
-                    <h1 id="welcomeTitle">Cocktail DB</h1>
+                    <h1 id="welcomeTitle">Aris' Cocktails</h1>
                     <p id="welcomeText">An app where you can find any cocktail recipe!</p>
                   </div>
                   <img id="homeImage" src={ cocktail } />
