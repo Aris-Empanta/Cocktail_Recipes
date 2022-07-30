@@ -2,11 +2,10 @@ import "../css/home.css"
 import { NavBar } from './navBar';
 import cocktail from "../images/cocktail.jpg"
 
-
+//the Home page component
 export const Home = () => {
 
-
-  /* */
+  
   return (<div> 
             <div id="homePage">
               <NavBar />  
@@ -17,7 +16,7 @@ export const Home = () => {
                   </div>
                   <img id="homeImage" src={ cocktail } />
                 </div>
-                <div class="wave"></div>                                            
+                                                           
             </div>           
           </div>
     );

@@ -1,16 +1,7 @@
-#barsMenu {
-    display: none;
-}
-
-
-#xButton {
-    display: none;
-}
-
 /*The navigation links wrapper*/
 #navLinks {
     list-style-type: none;
-    position: relative;
+    
     padding-top: 50px;
     display: flex;
 }
@@ -28,13 +19,13 @@
 /*Removing default anchor element styling*/
 #navLinks li a {
     text-decoration: none;
-    color: #682860;
+    color: purple;
 }
 
 /*The search navlink*/
 #searchLinks {
     height: 35px;
-    color: #682860;
+    color: purple;
 }
 
 /*The submenu appearing when hovering on search link*/
@@ -62,8 +53,30 @@
     color: black;
 }
 
+/*The bars icon in small screens*/
+#barsMenu {
+    display: none;
+}
+
+/*The "X" icon in small screens navbar*/
+#xButton {
+    display: none;
+}
+
+/*The navBar menu for small screens*/
+#smallNavWrapper {
+    background-color: white;
+    z-index: 3;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top:0;
+    transform: translateX(-100vw);
+    
+}
 
 
+/*Adjustments for mobile screens*/
 @media (max-width: 705px) {
     #barsMenu {
         display: initial;
@@ -71,46 +84,43 @@
         margin: 35px;
         font-family: sans-serif;
         font-size: 2rem;
-        color: #682860;
+        color: purple;
         background-color: transparent;
         border: none;
     }
+
+    #smallNavWrapper {
+        transition: transform 1s;
+    }
     
     #smallNavLinks {
-    display: flex;
-    flex-direction: column;
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
 
     }
 
     #smallNavLinks li {
         cursor: pointer;
-        margin: 35px;
+        margin: 40px;
         font-family: sans-serif;
         font-size: 1.3rem;
     }
 
     #smallNavLinks li a {
         text-decoration: none;
-        color: #682860;
+        color: purple;
     }
     
     #navWrapper {
         display: none;
     }
 
-    #smallNavWrapper {
-        background-color: white;
-        z-index: 3;
-        height: 100vh;
-        width: 100vw;
-        position: absolute;
-        top:0;
-        transform: translateX(-100vw);
-        transition: transform 1s;
-    }
+    
 
     #smallSearchLinks {
         position: relative;
+        color: purple;
     }
 
     #smallSubMenu {
@@ -121,7 +131,7 @@
         flex-direction: column;
         justify-content: center;
         gap: 20px;
-        display:flex;
+        display:none;
         width: 145px;
         height: 100px;
         z-index: 2;
@@ -131,11 +141,12 @@
     #xButton {
         display: initial;
         float: right;
-        margin: 40px;
+        margin: 30px;
         background-color: transparent;
         border: none;
-        color: #682860;
+        color: purple;
         font-size: 1.7rem;
+        cursor: pointer;
     }
  
 }
