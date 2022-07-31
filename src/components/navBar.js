@@ -20,13 +20,9 @@ export const NavBar = () => {
         if(window.innerWidth > 705 ) {
             navBar.style.transform = "translateX(-100vw)"        
             subMenu.style.display = "none" 
-        } 
-        
-            
+        }           
     })
-
-
-
+    
 
     return(
         <div>

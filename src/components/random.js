@@ -78,15 +78,17 @@ export const Random = () => {
 
     return (<div>
                 <NavBar />
-                <p>{ myQuote }</p>
-                <button onClick={ random }>GET COCKTAIL</button>
-                <img src= { image } /><br></br>  
-                        { name }<br></br>
-                        { recipe }<br></br>
-                        { alcoholic }<br></br>
-                        { glass }<br></br>
-                        { category }<br></br>
-                        { ingredients.map(item => <p>{ item }</p>) }
-                <p id="loaderRandom">...loading</p>
+                <div id="randomWrapper">
+                  <p id="myQuote">{ myQuote }</p>
+                  <button onClick={ random }>GET COCKTAIL</button>
+                  <img src= { image } /><br></br>  
+                          { name }<br></br>
+                          { recipe }<br></br>
+                          { alcoholic }<br></br>
+                          { glass }<br></br>
+                          { category }<br></br>
+                          { ingredients.map(item => <p>{ item }</p>) }
+                  <p id="loaderRandom">Please wait...</p>
+                </div>
             </div>)
 }

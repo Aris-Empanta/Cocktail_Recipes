@@ -1,6 +1,9 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { NavBar } from './navBar';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import "../css/cocktailsGeneral.css"
 
 //With below component, you can find all the cocktails that contain the name you put in the input field.
 export const ByName = () => {
@@ -12,11 +15,11 @@ export const ByName = () => {
       /*Below, we set a condition for the component, so that the loading element is displayed during
         the delay that happens when axios is fetching the data from cocktail DB */
       useEffect(() => {
-
+          
           let loader = document.getElementById("loaderName")
 
           if(loaded === true){
-            loader.style.display = "none"
+            loader.style.display = "none"                     
           } else {
             loader.style.display = "initial"
           }
@@ -38,26 +41,35 @@ export const ByName = () => {
             .then((response) => {  
                 setLoaded(true)                   
                 for(let i=0; i< response.data.drinks.length; i++){        
-                    setCocktailData(oldArray => [...oldArray, [response.data.drinks[i].strDrink, response.data.drinks[i].strDrinkThumb]])                                       
+                    if(name === ""){
+                      setCocktailData([])
+                      setError("No name found in input field")
+                    } else {
+                      setCocktailData(oldArray => [...oldArray, [response.data.drinks[i].strDrink, response.data.drinks[i].strDrinkThumb]]) 
+                    }                                                          
                   }                                   
-              }).catch(() => setError("no such cocktail"))    
+              }).catch(() => {
+                setError("No such cocktail exists")
+              })    
         }
 
     return(<div>
              <NavBar />
-             <div className="inputWrapper">
-                <div className="inputField">
-                  <input type="text" placeholder="Enter cocktail name" id="inputName" />
-                  <button id="searchName" onClick={ findName }>Search</button>
-                </div >               
+             <div className="searchWrapper">
+                <div class="inputGrid">
+                  <div className="inputField">
+                    <input type="text" placeholder="Enter cocktail name" id="inputName" />
+                    <button id="searchName" onClick={ findName }><FontAwesomeIcon icon={faMagnifyingGlass} /></button>
+                  </div > 
+                  <p class="error">{ error }<span><div id="loaderName">Please Wait...</div></span></p>                    
+                </div>                                                 
                 { cocktailData.map(item => <a class="cocktailLink" href= { "#/" + item[0] } target="_blank">
                                               <div class="cocktailWrapper">                                          
                                                 <img id="cocktailImage" alt="please wait..." src={ item[1]} />
                                                 <p id="cocktailCaption">{ item[0] }</p>
                                               </div>
-                                            </a>)}
-                <p>{ error }</p>
-                <p id="loaderName">...loading</p>
+                                            </a>)} 
+                                                            
               </div>
            </div>)
 }
