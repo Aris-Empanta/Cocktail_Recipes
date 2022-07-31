@@ -15,9 +15,10 @@ export const NavBar = () => {
         const navBar = document.getElementById("smallNavWrapper")
         let subMenu = document.getElementById("smallSubMenu")
 
-        if(window.innerWidth > 705 && navBar.style.transform === "translateX(0)" ) {
-            navBar.style.transform = "translateX(-100vw)"
-        
+        navBar.style.transition = "transform0s"
+
+        if(window.innerWidth > 705 ) {
+            navBar.style.transform = "translateX(-100vw)"        
             subMenu.style.display = "none" 
         } 
         

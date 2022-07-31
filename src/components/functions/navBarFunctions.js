@@ -22,6 +22,7 @@
         let subMenu = document.getElementById("subMenu")
 
         wrapper.style.transform = "translateX(0)"
+        wrapper.style.transition = "transform 1s"
         page.style.overflowY = "hidden"
         subMenu.style.display = "none"        
     }

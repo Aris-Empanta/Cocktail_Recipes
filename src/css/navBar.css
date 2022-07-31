@@ -90,6 +90,7 @@
     }
 
     #smallNavWrapper {
+        transform: translateX(-100vw);
         transition: transform 1s;
     }
     
