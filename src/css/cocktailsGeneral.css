@@ -13,6 +13,19 @@
     width: 100%;
 }
 
+/*The wrapper of all the fetchedd data.*/
+.searchWrapper {
+    display: grid;
+    grid-template-areas: "header header header"
+                        "cocktail cocktail cocktail"    ;
+    justify-content: space-evenly;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    row-gap: 70px;
+    width: 100vw;   
+    overflow-x: hidden;
+}
+
 /*The container that holds the image and name of the cocktail output*/
 .cocktailWrapper {
     grid-area: cocktail;
@@ -49,45 +62,9 @@
     text-decoration: none;
 }
 
-/*The input fields styling*/
-.inputField {
-    
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
 
-/*The input search field*/
-.inputField input {
-    width: 400px;
-    max-width: 90vw;
-    height: 30px;
-    border-radius: 4px 0 0 4px;
-    border: 1px solid black;
-    font-size: 1.2rem;
-    padding: 5px;
-}
 
-/*The button nect to input field*/
-.inputField button {
-    border-radius: 0 4px 4px 0;
-    border: 1px solid black;
-    font-size: 1.3rem;
-    width: 40px;
-    cursor: pointer;
-} 
 
-/*The wrapper of all the fetchedd data.*/
-.searchWrapper {
-    display: grid;
-    grid-template-areas: "header header header"
-                        "cocktail cocktail cocktail"    ;
-    justify-content: space-evenly;
-    padding-top: 100px;
-    padding-bottom: 100px;
-    row-gap: 70px;
-    width: 100%;   
-}
 
 /*The loading message of name search section*/
 #loaderName {
@@ -99,13 +76,13 @@
 /*The loading message of ingredient search section*/
 #loaderIngredient {
     font-family: 'Times New Roman', Times, serif;
-    font-size: 1.5rem;  
+    font-size: 1.5rem;
 }
 
 /*The error message in case of failure of fetching data*/
 .error {
     font-family: 'Times New Roman', Times, serif;
-    font-size: 1.5rem;   
+    font-size: 1.5rem; 
 }
 
 /*The wrapper that holds the input, the loading and the error element*/
@@ -116,4 +93,61 @@
     align-items: center;
     gap: 30px;
     grid-area: header;
+    
+}
+
+/*The input fields styling*/
+.inputField {   
+    display: flex; 
+    justify-content: center;
+}
+
+/*The input search field*/
+.inputField input {   
+    height: 30px;
+    border-radius: 4px 0 0 4px;
+    border: 1px solid black;
+    font-size: 1.2rem;
+    padding: 5px;
+    width: 400px;
+}
+
+/*The button nect to input field*/
+.inputField button {
+    border-radius: 0 4px 4px 0;
+    border: 1px solid black;
+    font-size: 1.3rem;   
+    cursor: pointer;
+    width: 40px;
+} 
+
+@media (max-width: 480px) {
+
+    .searchWrapper {       
+        grid-template-areas: "header"
+                            "cocktail";            
+    }
+
+    .outerWrapper {
+        display: flex;
+        justify-content: center;           
+    }
+
+    .inputField  input {
+        width: 75%;
+    }        
+
+}
+
+@media (min-width: 480px) and (max-width: 620px) {
+
+    .searchWrapper {        
+        grid-template-areas: "header header"
+                            "cocktail cocktail";        
+                }
+
+    .inputField  input {
+        width: 100%;
+    }
+   
 }

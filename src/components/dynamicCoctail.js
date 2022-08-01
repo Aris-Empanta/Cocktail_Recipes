@@ -1,6 +1,7 @@
 import {useParams} from 'react-router-dom';
 import Axios from "axios"
 import { useEffect, useState } from 'react';
+import "../css/dynamicCocktail.css"
 
 
 /*Below component, is dynamically generated every time we click to a cocktail we want to check.
@@ -38,6 +39,12 @@ export const DynamicCocktail = () => {
                 
                 //Ceasing the display of the loading element
                 setLoaded(true)
+
+                let voilaTitle = document.querySelector(".voilaTitle") 
+                let cocktailInfo = document.querySelector(".cocktailInfo")        
+
+                cocktailInfo.style.display = "flex" 
+                voilaTitle.style.display = "initial"   
                
                 for(let i=0; i< response.data.drinks.length; i++){
                     if(params.cocktailName === response.data.drinks[i].strDrink) {
@@ -72,15 +79,21 @@ export const DynamicCocktail = () => {
           )
 
   return (
-          <div>    
-            <img src= { image } /><br></br>  
-            { name }<br></br>
-            { recipe }<br></br>
-            { alcoholic }<br></br>
-            { glass }<br></br>
-            { category }<br></br>
-            { ingredients.map(item => <p>{ item }</p>) }
-            <p id="loaderRecipe">...loading</p>
+          <div className='dynamicCocktail'>    
+            <h1 className='voilaTitle'>Voilà!</h1>
+            <div className='cocktailInfo'>
+                    <img className="cocktailImage" src= { image } />
+                    <div className='infoWrapper'>                  
+                      <p><span className='infoLabel'>Name: </span>{ name }</p>                      
+                      <p><span className='infoLabel'>Alcoholic: </span>{ alcoholic === "Alcoholic" ? "Yes" : "No" }</p>
+                      <p><span className='infoLabel'>Glass to be served: </span>{ glass }</p>
+                      <p><span className='infoLabel'>Category: </span>{ category }</p>
+                      <p><span className='infoLabel'>Ingredients: </span></p>
+                      <ul className='ingredients'>{ ingredients.map(item => <li>{ item }</li>) }</ul>
+                      <p><span className='infoLabel'>How to make: </span>{ recipe }</p>
+                    </div>
+                  </div>
+            <p id="loaderRecipe">Please wait...</p>
           </div>
         );
       }

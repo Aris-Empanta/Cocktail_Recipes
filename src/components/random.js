@@ -1,7 +1,7 @@
 import { NavBar } from './navBar';
 import { useEffect, useState } from 'react';
 import axios from "axios"
-import "../css/random.css"
+import "../css/dynamicCocktail.css"
 
 /*We below component, a user can generate a random cocktail recipe on buttons click. */
 export const Random = () => {
@@ -32,6 +32,10 @@ export const Random = () => {
     
     //With below function, axios fetches a random's cocktail's recipe from the database on button's click.  
     const random = () => {
+
+        let cocktailInfo = document.querySelector(".cocktailInfo")        
+
+        cocktailInfo.style.display = "none"       
         
         //Reseting all cocktails info in every button's click.
         setRecipe("")
@@ -53,6 +57,7 @@ export const Random = () => {
         axios.get("https://www.thecocktaildb.com/api/json/v1/1/random.php").then((response) => {
                       //Ceasing the display of the loading element
                       setLoaded(true)
+                      cocktailInfo.style.display = "flex"
                       //Changing the quote
                       setMyQuote("There you Have it!") 
                       //Setting all state according to the fetched data
@@ -81,14 +86,19 @@ export const Random = () => {
                 <div id="randomWrapper">
                   <p id="myQuote">{ myQuote }</p>
                   <button onClick={ random }>GET COCKTAIL</button>
-                  <img src= { image } /><br></br>  
-                          { name }<br></br>
-                          { recipe }<br></br>
-                          { alcoholic }<br></br>
-                          { glass }<br></br>
-                          { category }<br></br>
-                          { ingredients.map(item => <p>{ item }</p>) }
-                  <p id="loaderRandom">Please wait...</p>
+                  <div className='cocktailInfo'>
+                    <img className="cocktailImage" src= { image } />
+                    <div className='infoWrapper'>                  
+                      <p><span className='infoLabel'>Name: </span>{ name }</p>                      
+                      <p><span className='infoLabel'>Alcoholic: </span>{ alcoholic === "Alcoholic" ? "Yes" : "No" }</p>
+                      <p><span className='infoLabel'>Glass to be served: </span>{ glass }</p>
+                      <p><span className='infoLabel'>Category: </span>{ category }</p>
+                      <p><span className='infoLabel'>Ingredients: </span></p>
+                      <ul className='ingredients'>{ ingredients.map(item => <li>{ item }</li>) }</ul>
+                      <p><span className='infoLabel'>How to make: </span>{ recipe }</p>
+                    </div>
+                  </div>
+                  <p id="loaderRandom">Please wait...</p>                 
                 </div>
             </div>)
 }

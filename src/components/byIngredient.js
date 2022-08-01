@@ -55,12 +55,14 @@ export const ByIngredient = () => {
                   </div>   
                   <p class="error">{ error }<span><div id="loaderIngredient">Please Wait...</div></span></p> 
                 </div>             
-                { cocktailData.map(item => <a class="cocktailLink" href= { "#/" + item[0] } target="_blank">
-                                              <div class="cocktailWrapper">                                          
-                                                <img id="cocktailImage" alt="please wait..." src={ item[1]} />
-                                                <p id="cocktailCaption">{ item[0] }</p>
-                                              </div>
-                                            </a>)}                                                                            
+                { cocktailData.map(item =>  <div className="outerWrapper">
+                                              <a class="cocktailLink" href= { "#/" + item[0] } target="_blank">
+                                                <div class="cocktailWrapper">                                          
+                                                  <img id="cocktailImage" alt="please wait..." src={ item[1]} />
+                                                  <p id="cocktailCaption">{ item[0] }</p>
+                                                </div>
+                                              </a>
+                                            </div>)}                                                                            
              </div>
            </div>
           )
