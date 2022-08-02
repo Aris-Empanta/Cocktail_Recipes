@@ -79,8 +79,7 @@ export const DynamicCocktail = () => {
           )
 
   return (
-          <div className='dynamicCocktail'>    
-            <h1 className='voilaTitle'>Voilà!</h1>
+          <div className='dynamicCocktail'>           
             <div className='cocktailInfo'>
                     <img className="cocktailImage" src= { image } />
                     <div className='infoWrapper'>                  
