@@ -85,17 +85,17 @@ export const Random = () => {
                 <NavBar />
                 <div id="randomWrapper">
                   <p id="myQuote">{ myQuote }</p>
-                  <button onClick={ random }>GET COCKTAIL</button>
+                  <button onClick={ random } id="getCocktail">GET COCKTAIL</button>
                   <div className='cocktailInfo'>
                     <img className="cocktailImage" src= { image } />
                     <div className='infoWrapper'>                  
-                      <p><span className='infoLabel'>Name: </span>{ name }</p>                      
-                      <p><span className='infoLabel'>Alcoholic: </span>{ alcoholic === "Alcoholic" ? "Yes" : "No" }</p>
-                      <p><span className='infoLabel'>Glass to be served: </span>{ glass }</p>
-                      <p><span className='infoLabel'>Category: </span>{ category }</p>
+                      <p><span className='infoLabel'>Name: </span><span className='fetchedInfo'>{ name }</span></p>                      
+                      <p><span className='infoLabel'>Alcoholic: </span><span className='fetchedInfo'>{ alcoholic === "Alcoholic" ? "Yes" : "No" }</span></p>
+                      <p><span className='infoLabel'>Glass to be served: </span><span className='fetchedInfo'>{ glass }</span></p>
+                      <p><span className='infoLabel'>Category: </span><span className='fetchedInfo'>{ category }</span></p>
                       <p><span className='infoLabel'>Ingredients: </span></p>
-                      <ul className='ingredients'>{ ingredients.map(item => <li>{ item }</li>) }</ul>
-                      <p><span className='infoLabel'>How to make: </span>{ recipe }</p>
+                      <ul className='ingredients'>{ ingredients.map(item => <li className='fetchedInfo'>{ item }</li>) }</ul>
+                      <p><span className='infoLabel'>How to make: </span><span className='fetchedInfo'>{ recipe }</span></p>
                     </div>
                   </div>
                   <p id="loaderRandom">Please wait...</p>                 

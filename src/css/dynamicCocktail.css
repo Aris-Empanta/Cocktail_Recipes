@@ -52,6 +52,15 @@
     margin: 20px;
 }
 
+/*The GET COCKTAIL button*/
+#getCocktail {
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 500;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: 5px;
+}
+
 /*The listed ingredients*/
 .ingredients {
     margin-left: 90px;
@@ -59,16 +68,25 @@
 
 /*The names of the attributes of cocktails*/
 .infoLabel {
-    font-weight: bold;
+    font-size: 1.3rem;
+    font-weight: 600;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-right: 10px;
+}
+
+/*The data fetched of the cocktail*/
+.fetchedInfo {
+    font-size: 1.3rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 /*The outer wrapper of the dynamicCocktail component*/
 .dynamicCocktail {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    height: 100vh;
+    padding: 6%;
 }
 
 /*The loading message of dynamicCocktail component*/
@@ -77,25 +95,38 @@
     font-size: 1.5rem;  
 }
 
-
+/*For small mobile screens*/
 @media(max-width: 360px) {
     
     .ingredients {
         margin-left: 40px;
     }
-}
-
-@media (max-width: 720px) {
 
     .cocktailInfo {
         flex-direction: column;
-        max-width: 70%;
+        max-width: 90%;
     }
 
     .cocktailImage {
-        width: 180px;
+        width: 220px;
+        max-width: 95%;
+        height: 220px;
+        align-self: center;
+    }
+}
+
+/*For smaller screens*/
+@media (min-width: 361px) and (max-width: 720px) {
+
+    .cocktailInfo {
+        flex-direction: column;
         max-width: 90%;
-        height: 180px;
+    }
+
+    .cocktailImage {
+        width: 220px;
+        max-width: 90%;
+        height: 220px;
         align-self: center;
     }
 

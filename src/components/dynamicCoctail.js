@@ -40,11 +40,11 @@ export const DynamicCocktail = () => {
                 //Ceasing the display of the loading element
                 setLoaded(true)
 
-                let voilaTitle = document.querySelector(".voilaTitle") 
+                
                 let cocktailInfo = document.querySelector(".cocktailInfo")        
 
                 cocktailInfo.style.display = "flex" 
-                voilaTitle.style.display = "initial"   
+                
                
                 for(let i=0; i< response.data.drinks.length; i++){
                     if(params.cocktailName === response.data.drinks[i].strDrink) {
@@ -74,7 +74,7 @@ export const DynamicCocktail = () => {
                     }                  
                   }                 
                 }
-              )                
+              ).catch((e)=> console.log(e))                
             }            
           )
 
@@ -83,13 +83,13 @@ export const DynamicCocktail = () => {
             <div className='cocktailInfo'>
                     <img className="cocktailImage" src= { image } />
                     <div className='infoWrapper'>                  
-                      <p><span className='infoLabel'>Name: </span>{ name }</p>                      
-                      <p><span className='infoLabel'>Alcoholic: </span>{ alcoholic === "Alcoholic" ? "Yes" : "No" }</p>
-                      <p><span className='infoLabel'>Glass to be served: </span>{ glass }</p>
-                      <p><span className='infoLabel'>Category: </span>{ category }</p>
-                      <p><span className='infoLabel'>Ingredients: </span></p>
-                      <ul className='ingredients'>{ ingredients.map(item => <li>{ item }</li>) }</ul>
-                      <p><span className='infoLabel'>How to make: </span>{ recipe }</p>
+                      <p><span className='infoLabel'>Name: </span><span className='fetchedInfo'>{ name }</span></p>                      
+                      <p><span className='infoLabel'>Alcoholic: </span><span className='fetchedInfo'>{ alcoholic === "Alcoholic" ? "Yes" : "No" }</span></p>
+                      <p><span className='infoLabel'>Glass to be served: </span><span className='fetchedInfo'>{ glass }</span></p>
+                      <p><span className='infoLabel'>Category: </span><span className='fetchedInfo'>{ category }</span></p>
+                      <p><span className='infoLabel'>Ingredients: </span><span className='fetchedInfo'></span></p>
+                      <ul className='ingredients'>{ ingredients.map(item => <li className='fetchedInfo'>{ item }</li>) }</ul>
+                      <p><span className='infoLabel'>How to make: </span><span className='fetchedInfo'>{ recipe }</span></p>
                     </div>
                   </div>
             <p id="loaderRecipe">Please wait...</p>
