@@ -3,6 +3,8 @@ import { useEffect, useState } from "react"
 import { NavBar } from './navBar';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { showScrollUp } from "./functions/generalFunctions";
+import { scrollUp } from "./functions/generalFunctions";
 import "../css/cocktailsGeneral.css"
 
 //With below component, you can find all the cocktails made with the ingredient you put in the input field.
@@ -11,6 +13,10 @@ export const ByIngredient = () => {
     const [cocktailData, setCocktailData] = useState([])
     const [error, setError] = useState("")
     const [loaded, setLoaded] = useState(true)
+
+    /*With below listener, the scrollUp button will appear whenever
+     the scrolling distance from top is more than 0*/
+     window.addEventListener("scroll", showScrollUp)
 
     /*Below, we set a condition for the component, so that the loading element is displayed during
       the delay that happens when axios is fetching the data from cocktail DB */
@@ -54,7 +60,8 @@ export const ByIngredient = () => {
                     <button id="searchIngredient" onClick={ findIngredient }><FontAwesomeIcon icon={faMagnifyingGlass} /></button>
                   </div>   
                   <p class="error">{ error }<span><div id="loaderIngredient">Please Wait...</div></span></p> 
-                </div>             
+                </div>   
+                <button class="scrollUp" onClick={ scrollUp }>up</button>           
                 { cocktailData.map(item =>  <div className="outerWrapper">
                                               <a class="cocktailLink" href= { "#/" + item[0] } target="_blank">
                                                 <div class="cocktailWrapper">                                          

@@ -1,6 +1,10 @@
 import axios from "axios"
 import { useEffect, useState } from 'react';
 import { NavBar } from './navBar';
+import { showScrollUp } from "./functions/generalFunctions";
+import { scrollUp } from "./functions/generalFunctions";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAnglesUp } from "@fortawesome/free-solid-svg-icons";
 import "../css/cocktailsGeneral.css"
 
 //Below component displays all cocktails of the database in alphabetical order
@@ -10,6 +14,10 @@ export const AllCoctails = () => {
   const [cocktailData, setCocktailData] = useState([])
   const [axiosReference, setAxiosReference] = useState(0)
   const [loaded, setLoaded] = useState(false)
+  
+  /*With below listener, the scrollUp button will appear whenever
+    the scrolling distance from top is more than 0*/
+  window.addEventListener("scroll", showScrollUp)
     
   useEffect(() => {
 
@@ -100,6 +108,7 @@ export const AllCoctails = () => {
         </div>          
         <p id="loaderName">Please wait...</p>
       </div> 
+      <button class="scrollUp" onClick={ scrollUp }>< FontAwesomeIcon icon={ faAnglesUp } /></button>  
       <div className="searchWrapper">
         {cocktailData.map(item => <a class="cocktailLink" href= { "#/" + item[0] } target="_blank">
                                                 <div class="cocktailWrapper">                                          
@@ -107,7 +116,7 @@ export const AllCoctails = () => {
                                                   <p id="cocktailCaption">{ item[0] }</p>
                                                 </div>
                                               </a>)}
-      </div>                       
+      </div>                           
     </div>
   );
 }

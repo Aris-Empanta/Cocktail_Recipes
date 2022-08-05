@@ -14,25 +14,28 @@
     font-family: 'Times New Roman', Times, serif;
     max-width: 80%;
     text-align: center;
+    color: #183a1d;
 }
 
 /*The loading message of random section*/
 #loaderRandom {
     font-family: 'Times New Roman', Times, serif;
     font-size: 1.5rem;  
+    color: #183a1d;
+    font-weight: 600;
 }
 
 
 /*The wrapper that holds all the fetched cocktail data*/
 .cocktailInfo {
-    border: 1px solid black;
+    border: 1px solid #183a1d;
     width: 1000px;
     margin-bottom: 30px;
     max-width: 90%;
     display: none;
     gap: 20px;
     border-radius: 3px;
-    box-shadow: 2px 2px 4px black;
+    box-shadow: 2px 2px 4px #183a1d;
 }
 
 /*The image of the cocktail*/
@@ -56,9 +59,14 @@
 #getCocktail {
     cursor: pointer;
     font-size: 1.1rem;
-    font-weight: 500;
+    font-weight: 600;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    padding: 5px;
+    padding: 10px;
+    background: linear-gradient(  rgb(251, 221, 19) 0.1%, #F5761A 90%);
+    color: #183a1d;
+    border: none;
+    box-shadow: 2px 2px 4px #183a1d;
+    border-radius: 3px;
 }
 
 /*The listed ingredients*/
@@ -72,12 +80,14 @@
     font-weight: 600;
     font-family: Georgia, 'Times New Roman', Times, serif;
     margin-right: 10px;
+    color: #183a1d;
 }
 
 /*The data fetched of the cocktail*/
 .fetchedInfo {
     font-size: 1.3rem;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #183a1d;
 }
 
 /*The outer wrapper of the dynamicCocktail component*/
@@ -93,6 +103,8 @@
 #loaderRecipe {
     font-family: 'Times New Roman', Times, serif;
     font-size: 1.5rem;  
+    font-weight: 600;
+    color:#183a1d;
 }
 
 /*For small mobile screens*/

@@ -14,6 +14,7 @@
     flex-wrap: wrap;
     width: 100%;
     max-width: 80%;
+    padding-top: 35px;
 }
 
 /*Each button with alphabet character*/
@@ -22,6 +23,11 @@
     height: 40px;
     cursor: pointer;
     font-size: 1.2rem;
+    background: linear-gradient(  rgb(251, 221, 19) 0.1%, #F5761A 90%);
+    color: #183a1d;
+    border: 1px solid #183a1d;
+    box-shadow: 1px 1px 2px #183a1d;
+    font-weight: 500;
 }
 
 /*The wrapper of all the fetchedd data.*/
@@ -46,24 +52,29 @@
     align-items: center;
     height: 250px;
     width: 190px;
-    border: 1px solid black;
+    border: 1px solid #183a1d;
     cursor: pointer;    
     border-radius: 3%;
-    box-shadow: 2px 2px 4px black;
+    box-shadow: 4px 4px 8px #183a1d;
+    background-color: #fefbe9;
+}
+
+.cocktailWrapper:hover {
+    transform: translateY(-15px);
 }
 
 /*The image fetched from the database*/
 #cocktailImage {
     width: 170px;
     height: 172px;
-    border: 1px solid black;
+    border: 1px solid #183a1d;
     border-radius: 3%;
 }
 
 /*The name of the cocktail under the image*/
 #cocktailCaption {
     max-width: 150px;
-    color: black;
+    color: #183a1d;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 600;
 }
@@ -73,27 +84,28 @@
     text-decoration: none;
 }
 
-
-
-
-
 /*The loading message of name search section*/
 #loaderName {
     font-family: 'Times New Roman', Times, serif;
     font-size: 1.5rem;
-    
+    color: #183a1d;  
+    font-weight: 600;  
 }
 
 /*The loading message of ingredient search section*/
 #loaderIngredient {
     font-family: 'Times New Roman', Times, serif;
     font-size: 1.5rem;
+    color: #183a1d;  
+    font-weight: 600; 
 }
 
 /*The error message in case of failure of fetching data*/
 .error {
     font-family: 'Times New Roman', Times, serif;
-    font-size: 1.5rem; 
+    font-size: 1.5rem;
+    color: #183a1d;  
+    font-weight: 600;
 }
 
 /*The wrapper that holds the input, the loading and the error element*/
@@ -104,7 +116,6 @@
     align-items: center;
     gap: 30px;
     grid-area: header;
-    
 }
 
 /*The input fields styling*/
@@ -115,22 +126,47 @@
 
 /*The input search field*/
 .inputField input {   
-    height: 30px;
+    height: 40px;
     border-radius: 4px 0 0 4px;
-    border: 1px solid black;
+    border: 1px solid #183a1d;
+    background-color: #fefbe9;
     font-size: 1.2rem;
+    color: #183a1d;
     padding: 5px;
     width: 400px;
+}
+
+.inputField input::placeholder {
+    color:#183a1d;
+    opacity: 0.9;
 }
 
 /*The button nect to input field*/
 .inputField button {
     border-radius: 0 4px 4px 0;
-    border: 1px solid black;
+    border: 1px solid #183a1d;
+    background: linear-gradient(  rgb(251, 221, 19) 0.1%, #F5761A 90%);
+    color: #183a1d;
     font-size: 1.3rem;   
     cursor: pointer;
     width: 40px;
 } 
+
+/*The button appearing when scroll down enable to scroll up the page*/
+.scrollUp {
+    position: fixed;
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    right: 30px;
+    bottom: 40px;
+    display: none;
+    background: linear-gradient(  rgb(251, 221, 19) 0.1%, #F5761A 90%);
+    border: 1px solid #183a1d;
+    border-radius: 5px;
+    color: #183a1d;
+    font-size: 1.8rem;
+}
 
 @media (max-width: 480px) {
 

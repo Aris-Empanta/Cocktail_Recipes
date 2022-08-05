@@ -3,8 +3,7 @@
     src: url("PermanentMarker-Regular.ttf");
 }
 /*The wrapper tha holds the homePage section*/
-#homePage {
-    background-color: #fefbe9;
+#homePage {    
     height:100vh;
     overflow: auto;
 }

@@ -23,7 +23,7 @@
 /*The search navlink*/
 #searchLinks {
     height: 35px;
-    color: #183a1d ;
+    color: #183a1d;
 }
 
 /*The submenu appearing when hovering on search link*/
@@ -35,6 +35,7 @@
     flex-direction: column;
     justify-content: center;
     gap: 20px;
+    background-color: #fefbe9;
     box-shadow: 2px 2px 6px #183a1d;
     width: 145px;
     height: 100px;
@@ -48,7 +49,7 @@
     cursor: pointer;
     margin-left: 10px;
     text-decoration: none;
-    color: black;
+    color: #183a1d;
 }
 
 /*The bars icon in small screens*/
@@ -102,8 +103,9 @@
     #smallNavLinks li {
         cursor: pointer;
         margin: 40px;
-        font-family: sans-serif;
-        font-size: 1.3rem;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 1.5rem;
+        font-weight: 600;
     }
 
     #smallNavLinks li a {
