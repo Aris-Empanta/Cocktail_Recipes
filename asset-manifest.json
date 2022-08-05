@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/cocktail_recipes/static/css/main.e7ff0ce0.css",
+    "main.js": "/cocktail_recipes/static/js/main.0eca154b.js",
+    "static/media/cocktail.jpg": "/cocktail_recipes/static/media/cocktail.f0f1bd9d0b7ffa8f401e.jpg",
+    "static/media/PermanentMarker-Regular.ttf": "/cocktail_recipes/static/media/PermanentMarker-Regular.109a10dca0508e41aa12.ttf",
+    "index.html": "/cocktail_recipes/index.html",
+    "main.e7ff0ce0.css.map": "/cocktail_recipes/static/css/main.e7ff0ce0.css.map",
+    "main.0eca154b.js.map": "/cocktail_recipes/static/js/main.0eca154b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e7ff0ce0.css",
+    "static/js/main.0eca154b.js"
+  ]
+}
