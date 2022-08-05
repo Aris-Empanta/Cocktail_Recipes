@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { showScrollUp } from "./functions/generalFunctions";
 import { scrollUp } from "./functions/generalFunctions";
+import { faAnglesUp } from "@fortawesome/free-solid-svg-icons";
 import "../css/cocktailsGeneral.css"
 
 //With below component, you can find all the cocktails that contain the name you put in the input field.
@@ -69,7 +70,7 @@ export const ByName = () => {
                   </div > 
                   <p class="error">{ error }<span><div id="loaderName">Please Wait...</div></span></p>                    
                 </div>                        
-                <button class="scrollUp" onClick={ scrollUp }>up</button>                           
+                <button class="scrollUp" onClick={ scrollUp }>< FontAwesomeIcon icon={ faAnglesUp } /></button>                           
                 { cocktailData.map(item =><div className="outerWrapper">
                                             <a class="cocktailLink" href= { "#/" + item[0] } target="_blank">
                                               <div class="cocktailWrapper">                                          
