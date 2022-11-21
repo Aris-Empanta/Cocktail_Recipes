@@ -4,6 +4,13 @@
 
 ![App Screenshot](cocktail.png)
 
+## Technologies
+
+- React
+- Axios
+- Vanilla JavaScript
+- CSS
+
 ## Description
 
 &nbsp;&nbsp;&nbsp;&nbsp;In this app you can find the recipes of over 600 cocktails and beverages. It fetches 

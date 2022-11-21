@@ -5,7 +5,7 @@ import { faX } from "@fortawesome/free-solid-svg-icons"
 import { showSubMenu, 
          hideSubMenu, 
          showNavBar, 
-         hideNavBar, 
+         hideNavBar,  
          manageSubMenu } from "./functions/navBarFunctions"
 import "../css/navBar.css"
 
