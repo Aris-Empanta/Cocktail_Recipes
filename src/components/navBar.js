@@ -2,7 +2,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons"
 import { faBars } from "@fortawesome/free-solid-svg-icons"
 import { faX } from "@fortawesome/free-solid-svg-icons"
-import { showSubMenu, hideSubMenu, showNavBar, hideNavBar, manageSubMenu } from "./functions/navBarFunctions"
+import { showSubMenu, 
+         hideSubMenu, 
+         showNavBar, 
+         hideNavBar, 
+         manageSubMenu } from "./functions/navBarFunctions"
 import "../css/navBar.css"
 
 
