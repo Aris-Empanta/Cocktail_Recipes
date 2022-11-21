@@ -1,4 +1,4 @@
-# Cocktail Recipes
+# Cocktail Recipes :tropical_drink:
 
 [View Live Web App](https://aris-empanta.github.io/Cocktail_Recipes/)
 
