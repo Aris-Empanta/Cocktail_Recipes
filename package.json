@@ -19,6 +19,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "ng": "node --max_old_space_size=4096 ./node_modules/.bin/ng",
     "start": "react-scripts start",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
